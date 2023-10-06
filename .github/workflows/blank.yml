@@ -13,6 +13,7 @@ on:
 
 jobs:
   create-release-tag:
+    permissions: write-all
     name: 'Release notes'
     runs-on: 'ubuntu-latest'
     if: github.ref == 'refs/heads/main'
