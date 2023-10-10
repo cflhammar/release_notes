@@ -18,17 +18,7 @@ jobs:
     runs-on: 'ubuntu-latest'
     if: github.ref == 'refs/heads/main'
     steps:
-      - name: set date env
-        run: echo "NOW=$(date +'v%Y.%m.%d%H%M%S')" >> $GITHUB_ENV
-
-      - name: Create tag
-        uses: actions/github-script@v5
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          script: |
-            github.rest.git.createRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: 'refs/tags/${{ env.NOW }}',
-              sha: context.sha,
-              message: "message"
-            })
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
