@@ -31,9 +31,6 @@ jobs:
               ref: 'refs/tags/${{ env.NOW }}',
               sha: context.sha,
             })
-      - name: "Build & test"
-        run: |
-          echo ${{ env.NOW }}
       - name: "Create release"
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
