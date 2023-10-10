@@ -38,6 +38,6 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: '${{ env.NOW }}'
           prerelease: false
+          auto_generate_release_notes: true
           files: |
             *
-        id: "automatic_releases"  
