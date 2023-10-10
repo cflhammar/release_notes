@@ -37,3 +37,5 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: '${{ env.NOW }}'
           prerelease: false
+          files: |
+            README.md
