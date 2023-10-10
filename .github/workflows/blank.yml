@@ -31,17 +31,11 @@ jobs:
               ref: 'refs/tags/${{ env.NOW }}',
               sha: context.sha,
             })
-  tagged-release:
-    name: "Tagged Release"
-    runs-on: "ubuntu-latest"
-
-    steps:
-      # ...
       - name: "Build & test"
         run: |
-          echo "done!"
-
-      - uses: "marvinpinto/action-automatic-releases@latest"
+          echo 
+      - name: "Create release"
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: 'refs/tags/${{ env.NOW }}'
