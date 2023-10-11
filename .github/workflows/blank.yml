@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: set date env
-        run: echo "NOW=$(date +'v%Y.%m.%d%H%M%S')" >> $GITHUB_ENV
+        run: echo "NOW=$(date +'%Y.%m.%d%H%M%S')" >> $GITHUB_ENV
 
       # - name: Create tag
       #   uses: actions/github-script@v5
