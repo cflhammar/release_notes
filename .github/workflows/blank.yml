@@ -32,6 +32,7 @@ jobs:
       #         ref: 'refs/tags/${{ env.NOW }}',
       #         sha: context.sha,
       #       })
+      ----
       - name: "Create release"
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
@@ -40,3 +41,13 @@ jobs:
           prerelease: false
           files: |
             *
+          steps:
+      - name: Create release notes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag: '${{ env.NOW }}'
+        run: |
+          gh release create "$tag" \
+              --repo="$GITHUB_REPOSITORY" \
+              --title="${GITHUB_REPOSITORY#*/} ${tag#v}" \
+              --generate-notes
