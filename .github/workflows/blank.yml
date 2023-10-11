@@ -33,15 +33,15 @@ jobs:
       #         sha: context.sha,
       #       })
       # ----
-      - name: "Create release"
-        uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: '${{ env.NOW }}'
-          prerelease: false
-          files: |
-            *
-          steps:
+      # - name: "Create release"
+      #   uses: "marvinpinto/action-automatic-releases@latest"
+      #   with:
+      #     repo_token: "${{ secrets.GITHUB_TOKEN }}"
+      #     automatic_release_tag: '${{ env.NOW }}'
+      #     prerelease: false
+      #     files: |
+      #       *
+      #     steps:
       - name: Create release notes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
